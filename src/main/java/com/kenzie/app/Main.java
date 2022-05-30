@@ -11,7 +11,9 @@ public class Main {
     public static StringBuilder createStringBuilderWithName(String name) {
         // Create a StringBuilder and initialize it with the given name.
         // Return the StringBuilder object
-        return null;
+
+        StringBuilder sb = new StringBuilder(name);
+        return sb;
     }
 
     // Exercise Two -------------------------------------------------------------------
@@ -23,8 +25,18 @@ public class Main {
         //
         // Add each word separately using the .append method (don't use +)
         // Convert your StringBuilder instance into a string and return it.
+        StringBuilder list = new StringBuilder();
 
-        return "";
+        list.append(item1);
+        list.append(", ");
+        list.append(item2);
+        list.append(", ");
+        list.append(item3);
+        list.append(", ");
+        list.append(item4);
+
+        String s = list.toString();
+        return s;
     }
 
     // Exercise Three -------------------------------------------------------------------
@@ -47,7 +59,13 @@ public class Main {
         // Hint: You will first have to determine the start and end index of the substring within the content
         //
         // When you are done, return the completed String
-        return null;
+        StringBuilder sb = new StringBuilder(content);
+        int startIndex = sb.indexOf(substring);
+        int endIndex = sb.lastIndexOf(substring);
+        sb.replace(startIndex, endIndex + substring.length(), replacementValue);
+
+
+        return sb.toString();
     }
 
     // Exercise Four -------------------------------------------------------------------
@@ -60,9 +78,23 @@ public class Main {
         // Then your String would be: "My favorite characters are Superman, Wonder Woman, Batman, and Godzilla."
         //
         // Create a new StringBuild and use this to form your String.
+        StringBuilder sb = new StringBuilder();
+        sb.append("My favorite characters are ");
         // You will need to iterate over the characters array, adding each item and the necessary other characters.
+        for(int i = 0; i < characters.length-1; i++){
+            sb.append(characters[i]);
+            sb.append(", ");
+        }
 
-        return "";
+        String lastOne = characters[characters.length-1];
+        sb.append("and ");
+        sb.append(lastOne);
+        sb.append(".");
+
+
+        //System.out.print("My favorite characters are ");
+
+        return sb.toString();
     }
     
     public static void main(String[] args) {
